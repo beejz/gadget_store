@@ -19,7 +19,8 @@ Tech Stack
 Backend:  
   - Node.js + Express.js  
   - MongoDB (Atlas) + Mongoose
-  - JSON Web Tokens for auth 
+  - JSON Web Tokens for auth
+    
 Frontend:  
   - React + Redux Toolkit + React Router  
   - Axios for HTTP requests  

@@ -1,0 +1,71 @@
+/* full-viewport header */
+.header {
+  width: 100vw;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* flex container, now positioned relative */
+.header .container {
+  position: relative;      /* for absolute children */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 0 0rem;
+  height: 70px;
+}
+
+/* brand (logo) on left */
+.brand {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 80px;
+  width: auto;
+}
+
+/* title absolutely centered */
+.site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* nav on right */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color .2s;
+}
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* Cart badge */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  line-height: 1;
+}

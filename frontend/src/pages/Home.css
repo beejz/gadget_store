@@ -1,0 +1,16 @@
+.home {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .home h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .grid {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  

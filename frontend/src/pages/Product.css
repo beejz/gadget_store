@@ -1,0 +1,52 @@
+.detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .detail img {
+    flex: 1 1 300px;
+    max-width: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .info {
+    flex: 1 1 300px;
+  }
+  .info h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  .price {
+    color: #e60023;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* Buy button variant */
+  .btn.buy {
+    background: var(--text);
+    color: var(--card-bg);
+  }
+  

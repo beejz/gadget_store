@@ -5,7 +5,8 @@ import App from './App.jsx';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 
-createRoot(document.getElementById('root')).render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <AuthProvider>
       <CartProvider>

@@ -6,12 +6,12 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 
 const root = createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <AuthProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </AuthProvider>
-  </React.StrictMode>
-);
+ root.render(
+   <React.StrictMode>
+     <AuthProvider>
+       <CartProvider>
+         <App />
+       </CartProvider>
+     </AuthProvider>
+   </React.StrictMode>
+ );

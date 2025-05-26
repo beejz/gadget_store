@@ -2,63 +2,62 @@ import axios from 'axios';
 
 // Create an Axios instance pointed at your backend API
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL, // e.g. http://localhost:5001/api
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5001/api',
 });
 
-/** Fetch all products */
+/** Fetch all gadgets */
 export async function fetchProducts() {
-  const res = await api.get('/products');
-  return res.data;
+  const { data } = await api.get('/gadgets');
+  return data;
 }
 
-/** Fetch single product by ID */
+/** Fetch single gadget by ID */
 export async function fetchProductById(id) {
-  const res = await api.get(`/products/${id}`);
-  return res.data;
+  const { data } = await api.get(`/gadgets/${id}`);
+  return data;
 }
 
-/** Create a new product (Admin) */
-export async function createProduct(productData, token) {
-  const res = await api.post(
-    '/products',
-    productData,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-  return res.data;
+/** Create a new gadget (Admin) — no auth header */
+export async function createProduct(productData) {
+  const { data } = await api.post('/gadgets', productData);
+  return data;
 }
 
-/** Update a product (Admin) */
-export async function updateProduct(id, updates, token) {
-  const res = await api.put(
-    `/products/${id}`,
-    updates,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-  return res.data;
+/** Update a gadget (Admin) — no auth header */
+export async function updateProduct(id, updates) {
+  const { data } = await api.put(`/gadgets/${id}`, updates);
+  return data;
 }
 
-/** Delete a product (Admin) */
-export async function deleteProduct(id, token) {
-  const res = await api.delete(
-    `/products/${id}`,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-  return res.data;
+/** Delete a gadget (Admin) — no auth header */
+export async function deleteProduct(id) {
+  const { data } = await api.delete(`/gadgets/${id}`);
+  return data;
 }
 
 /** Register a new user */
 export async function registerUser({ name, email, password }) {
   const res = await api.post('/users', { name, email, password });
+  const { token, user } = res.data;
+  if (token) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   return res.data;
 }
 
 /** Authenticate user and get token */
 export async function authUser({ email, password }) {
   const res = await api.post('/users/login', { email, password });
+  const { token, user } = res.data;
+  if (token) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   return res.data;
 }
 
-/** Get USD→PHP exchange rate */
+/** Get USD→PHP exchange rate (external) */
 export async function fetchUSDtoPHP() {
   const res = await axios.get('https://api.exchangerate.host/latest', {
     params: { base: 'USD', symbols: 'PHP' },

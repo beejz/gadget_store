@@ -58,4 +58,5 @@ export function useCart() {
   return context;
 }
 
+export { CartContext };
 export default CartContext;
